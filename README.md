@@ -1,2 +1,2 @@
-# ClassNameHere
-A template for a REDCap External Module
+# Tester EM
+This **Tester EM** is built to test against a **Cron EM** that updates a date field daily to input the current date. The **Tester EM** also has a cron running to test against the date field everyday at 1 am to compare the latest date input to the current date. If the **Cron EM** fails to update the latest date input, an email will be sent out to a recipient notifying them that a problem has occurred with the **Cron EM**.

@@ -1,64 +1,100 @@
 {
-	"name": "ClassNameHere",
+  "name": "Tester",
+  "namespace": "Stanford\\Tester",
+  "description": "EM to test other EMs",
+  "documentation": "README.md",
 
-	"namespace": "Stanford\\ClassNameHere",
+  "authors": [
+    {
+      "name": "Weston Cao",
+      "email": "wcao226@stanford.edu",
+      "institution": "Stanford University"
+    },
+    {
+      "name": "Andrew Martin",
+      "email": "andy123@stanford.edu",
+      "institution": "Stanford University"
+    },
+    {
+      "name": "Lee Ann Yasukawa",
+      "email": "yasukawa@stanfordhealthcare.org",
+      "institution": "Stanford Health Care"
+    }
+  ],
 
-	"description": "A template for a REDCap External Module",
+  "permissions": [],
 
-	"documentation": "README.md",
+  "enable-every-page-hooks-on-system-pages": false,
 
-	"authors": [
-		{
-			"name": "Andrew Martin",
-			"email": "andy123@stanford.edu",
-			"institution": "Stanford University"
-		}
-	],
+  "links": {
+    "project": [],
+    "control-center": []
+  },
 
-	"permissions": [
-		"redcap_module_system_enable",
-		"redcap_module_project_enable",
-		"redcap_module_save_configuration"
-	],
-	
-	"enable-every-page-hooks-on-system-pages": false,	
+  "crons": [
+    {
+      "cron_name": "r2s_daily_check",
+      "cron_description": "This cron will run once a day at 1 am to check EM",
+      "method": "checkLatestDate",
+      "cron_hour": "15",
+      "cron_minute": "02"
+    }
+  ],
 
-	"links": {
-		"project": [
+  "no-auth-pages": [],
 
-		],
-		"control-center": [
+  "project-settings": [
+    {
+      "key": "enable-project-debug-logging",
+      "name": "<b>Enable Debug Logging</b><br><i>(optional)</i> Requires installation and configuration of emLogger",
+      "required": false,
+      "type": "checkbox"
+    }
+  ],
 
-		]
-	},
+  "system-settings": [
+    {
+      "key": "enable-system-debug-logging",
+      "name": "<b>Enable Debug Logging (system-wide)</b><i>(optional)</i> Requires installation and configuration of emLogger",
+      "required": false,
+      "type": "checkbox"
+    },   
+    {
+      "key": "r2s-pid",
+      "name": "<h6><span class='text-lg badge badge-lg badge-success'>PID</span></h6>Enter PID",
+      "required": true,
+      "type": "text"
+    },
+    {
+      "key": "r2s-email-to",
+      "name": "<h6><span class='text-lg badge badge-lg badge-success'>Email To</span></h6>Enter the email address where notification will send to",
+      "required": true,
+      "type": "text"
+    },
+    {
+      "key": "r2s-email-from",
+      "name": "<h6><span class='text-lg badge badge-lg badge-success'>Email From</span></h6>Enter the email address is from",
+      "required": true,
+      "type": "text"
+    },
+    {
+      "key": "r2s-email-subject",
+      "name": "<h6><span class='text-lg badge badge-lg badge-success'>Notification Email Subject</span></h6>Enter the subject for the notification email",
+      "required": true,
+      "type": "text"
+    },
+    {
+		"key": "r2s-email-body",
+		"name": "<h6><span class='text-lg badge badge-lg badge-success'>Notification Email Body</span></h6>Enter the body of notification email",
+		"required": true,
+		"type": "rich-text"
+	  }
+  ],
 
-	"no-auth-pages": [
-
-	],
-
-	"project-settings": [
-		{
-			"key": "enable-project-debug-logging",
-			"name": "<b>Enable Debug Logging</b><br><i>(optional)</i> Requires installation and configuration of emLogger",
-			"required": false,
-			"type": "checkbox"
-		}
-	],
-
-
-	"system-settings": [
-		{
-			"key": "enable-system-debug-logging",
-			"name": "<b>Enable Debug Logging (system-wide)</b><i>(optional)</i> Requires installation and configuration of emLogger",
-			"required": false,
-			"type": "checkbox"
-		}
-	],
-
-	"compatibility": {
-		"php-version-min": "",
-		"php-version-max": "",
-		"redcap-version-min": "",
-		"redcap-version-max": ""
-	}
+  "compatibility": {
+    "php-version-min": "",
+    "php-version-max": "",
+    "redcap-version-min": "",
+    "redcap-version-max": ""
+  }
 }
