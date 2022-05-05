@@ -29,6 +29,9 @@ class Tester extends \ExternalModules\AbstractExternalModule {
         // Set PID
         $this->pid                      = $this->getSystemSetting('r2s-pid');
 
+        // Set Event ID
+        $this->eventId                  = $this->getSystemSetting('r2s-event-id');
+
         // Email parameters
         $this->emailTo                  = $this->getSystemSetting('r2s-email-to');
         $this->emailFrom                = $this->getSystemSetting('r2s-email-from');
@@ -36,15 +39,12 @@ class Tester extends \ExternalModules\AbstractExternalModule {
         $this->emailBody                = $this->getSystemSetting('r2s-email-body');
 
         // Capture input dates
-        $data = REDCap::getData($this->pid, 'array', null, array('date_stamp'));
-
-        // Count number of records
-        $number = count($data);
+        $data = REDCap::getData($this->pid, 'array', null, array('date_stamp'), $this->eventId);
 
         // Capture latest record
-        $latestRecord = $data[$number];
+        $latestRecord = end($data);
 
-        // Capture latest date
+        // Capture latest date of latest record
         $date = array_values($latestRecord);
         $latestDate = $date[0]['date_stamp'];
 

@@ -36,8 +36,8 @@
       "cron_name": "r2s_daily_check",
       "cron_description": "This cron will run once a day at 1 am to check EM",
       "method": "checkLatestDate",
-      "cron_hour": "15",
-      "cron_minute": "02"
+      "cron_hour": "01",
+      "cron_minute": "00"
     }
   ],
 
@@ -62,6 +62,12 @@
     {
       "key": "r2s-pid",
       "name": "<h6><span class='text-lg badge badge-lg badge-success'>PID</span></h6>Enter PID",
+      "required": true,
+      "type": "text"
+    },
+    {
+      "key": "r2s-event-id",
+      "name": "<h6><span class='text-lg badge badge-lg badge-success'>Event ID</span></h6>Enter Event ID",
       "required": true,
       "type": "text"
     },
